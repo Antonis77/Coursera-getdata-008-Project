@@ -20,7 +20,7 @@ The developed script (run_analysis.R) performs the following tasks
 - Abbreviations are expanded to the whole text (e.g. 'acc' to 'accelerometer') 
 - Spaces and Punctuation symbols are revoved (e.g. undersores, commas) 
 - All letters are set to lowercase 
-- 
+
 5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. To perform this task functions from "plyr" package have been used. 
 
 ##Output File Description
