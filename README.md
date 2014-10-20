@@ -1,11 +1,14 @@
 Coursera-getdata-008-Project
 ============================
 
-IMPORTANT: 
+REQUIRED PACKAGES: 
+============================
+
 The script below includes functions from the "plyr" package and therefore package need to be installed in the running computer.
 
 CODE DESCRIPTION
 ============================
+
 The developed script (run_analysis.R) performs the following tasks
 
     1. Merges the training and the test sets to create one data set. This includes the measurement results, the                activities and the subject (persons) IDs.
@@ -33,6 +36,7 @@ The developed script (run_analysis.R) performs the following tasks
     5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for          each activity and each subject. To perform this task functions from "plyr" package have been used. 
     
 OUTPUT FILE DESCRIPTION
+============================
 
 The output file is this repository with the name "output.txt". It consists of data in 181 rows and 79 columns. The first row is the variable (columns) labels. Each of the other 180 rows represent one activity combination with one subject ID. (6 activities x 30 subjects) as shown in columns 1 and 2 respectively. Columns 3 to 79 contain the averaged values for each variable. Row names have not been included. 
 
