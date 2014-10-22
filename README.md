@@ -25,4 +25,4 @@ The developed script (run_analysis.R) performs the following tasks
 
 ##Output File Description
 
-The output file is this repository with the name "output.txt". It consists of data in 181 rows and 79 columns. The first row is the variable (columns) labels. Each of the other 180 rows represent one activity combination with one subject ID. (6 activities x 30 subjects) as shown in columns 1 and 2 respectively. Columns 3 to 79 contain the averaged values for each variable. Row names have not been included.
+The output file is this repository with the name "tidy_data.txt". It consists of data in 181 rows and 79 columns. The first row is the variable (columns) labels. Each of the other 180 rows represent one activity combination with one subject ID. (6 activities x 30 subjects) as shown in columns 1 and 2 respectively. Columns 3 to 79 contain the averaged values for each variable. Row names have not been included.
