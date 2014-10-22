@@ -3,6 +3,10 @@
 
 #Reading files into R variables
 #---------------------------------------------------------------------------------------------------------
+# THE WORKING DIRECTORY SHOULD BE SET IN ORDER FOR THE CODE TO WORK. 
+# INPUT FILES "X_test.txt", "X_train.txt", "y_test.txt", "y_train.txt", "subject_test.txt", "subject_train.txt",
+# "features.txt",SHOULD BE INCLUDED IN IT. OUTPUT FILES WILL ALSO BE WRITTEN IN THE WORKING DIRECTORY
+#---------------------------------------------------------------------------------------------------------
 
 #read the two data sets from respective directory
     testorig<-read.table("X_test.txt",header=FALSE,sep="")
@@ -77,7 +81,7 @@
 
 #Calculate the mean value of each variable per subject ID and activity and write results to a file(STEP5)
     output2<-ddply(dataset2,.(descriptiveactivityname,subjectid),numcolwise(mean))
-    write.table(output2,file="tidy_data.txt",row.name=TRUE)
+    write.table(output2,file="tidy_data.txt",row.name=FALSE)
 
 
 
