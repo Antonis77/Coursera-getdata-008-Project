@@ -11,7 +11,7 @@ Activity of subject (person)
 		LYING
 
 ###subjectid 1-30
-Number ID of person 
+Number ID of person who performed the activity
 
 ###timebodyaccelerometermeanx	
 Time domain body linear acceleration on axis - X Mean Value
