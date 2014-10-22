@@ -5,7 +5,6 @@
 #---------------------------------------------------------------------------------------------------------
 
 #read the two data sets from respective directory
-    setwd("C:/Users/apapoutsakis.GEKTERNA/Desktop/Coursera-3/Assingment/Code")
     testorig<-read.table("X_test.txt",header=FALSE,sep="")
     trainorig<-read.table("X_train.txt",header=FALSE,sep="")
 
@@ -72,12 +71,11 @@
           colnames(dataset2)<-tolower(colnames(dataset2))
           colnames(dataset2)<-gsub("[[:punct:]]", "", names(dataset2))
 #-----------------------------------------------------------------------------------------------------    
-    
-# The following line was used to extract variable names to the codebook: 
-#write(names(dataset2),file="names.txt")
-    
-#Calculate the mean value of each variable per subject ID and activity and write results to a file(STEP5)
+
+#Load ply package required for function ddply
     library(plyr)
+
+#Calculate the mean value of each variable per subject ID and activity and write results to a file(STEP5)
     output2<-ddply(dataset2,.(descriptiveactivityname,subjectid),numcolwise(mean))
     write.table(output2,file="tidy_data.txt",row.name=TRUE)
 
