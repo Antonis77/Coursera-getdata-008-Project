@@ -1,6 +1,6 @@
 ##Coursera-getdata-008-Project
 
-Averages data from wearable computing experiment and creates a tidy data set with results of selceted measurements
+Averages data from wearable computing experiment and creates a tidy data set with results of selceted measurements. All variables have been normalised and bounded within [-1,1]. Therefore all variables are dimensionless and so codebook shows no units for the variables.
 
 ##Required Packages
 
