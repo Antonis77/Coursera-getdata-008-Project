@@ -8,6 +8,9 @@
 # "features.txt",SHOULD BE INCLUDED IN IT. OUTPUT FILES WILL ALSO BE WRITTEN IN THE WORKING DIRECTORY
 #---------------------------------------------------------------------------------------------------------
 
+#Load ply package required for function ddply
+library(plyr)
+
 #read the two data sets from respective directory
     testorig<-read.table("X_test.txt",header=FALSE,sep="")
     trainorig<-read.table("X_train.txt",header=FALSE,sep="")
@@ -35,10 +38,10 @@
 #Extract Columns
     colnames(whole_dataset_orig)<-features[[2]]
     y<-colnames(whole_dataset_orig)
-    colsmean<-grep("mean",y)
-    colsstd<-grep("std",y)
-    colsMean<-grep("Mean",y)
-    dataset<-whole_dataset_orig[,c(colsmean,colsMean,colsstd)]
+    colsmean<-grep("mean()",y,fixed=TRUE)
+    colsstd<-grep("std()",y,fixed=TRUE)
+#    colsMean<-grep("Mean",y)
+    dataset<-whole_dataset_orig[,c(colsmean,colsstd)]
 
 #--------------------------------------------------------------------------------------------------------
 
@@ -55,13 +58,14 @@
     dataset2<-data.frame(x,whole_subject,dataset)
     colnames(dataset2)[c(1,2)]<-c("descriptiveactivityname","subjectid")
 
-#Remove Columns with title including "BodyBody" as those are considered erroneous records
-    drops<-grep("BodyBody",names(dataset2),value=TRUE)
+#Remove Columns with title including "angle" as those are considered not measurements but
+#processed measurements
+    drops<-grep("angle",names(dataset2),value=TRUE)
     dataset2<-dataset2[,!names(dataset2)%in%drops]
 
 #----------------------------------------------------------------------------------------------------
 #Rename Variables (column headers) with desrcrptive names remove gaps, punctuation
-#and use lowercase letters (STEP4)
+#and use lowercase letters (STEP4). Substitute "BodyBody' with 'body'
           colnames(dataset2)<-sub("^t","time",names(dataset2))
           colnames(dataset2)<-sub("tBody","timebody",names(dataset2))
           colnames(dataset2)<-sub("^f","frequency",names(dataset2))
@@ -72,12 +76,10 @@
           colnames(dataset2)<-gsub("()","",names(dataset2))
           colnames(dataset2)<-gsub("-","",names(dataset2))
           colnames(dataset2)<-gsub("Freq","frequency",names(dataset2))
+          colnames(dataset2)<-gsub("BodyBody","body",names(dataset2))
           colnames(dataset2)<-tolower(colnames(dataset2))
           colnames(dataset2)<-gsub("[[:punct:]]", "", names(dataset2))
 #-----------------------------------------------------------------------------------------------------    
-
-#Load ply package required for function ddply
-    library(plyr)
 
 #Calculate the mean value of each variable per subject ID and activity and write results to a file(STEP5)
     output2<-ddply(dataset2,.(descriptiveactivityname,subjectid),numcolwise(mean))
