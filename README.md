@@ -6,6 +6,10 @@ Averages data from wearable computing experiment and creates a tidy data set wit
 
 The script below includes functions from the "plyr" package and therefore package need to be installed in the running computer.
 
+##IMPORTANT NOTE
+THE WORKING DIRECTORY SHOULD BE SET IN ORDER FOR THE CODE TO WORK.  INPUT FILES "X_test.txt", "X_train.txt", "y_test.txt", "y_train.txt", "subject_test.txt", "subject_train.txt", "features.txt",SHOULD BE INCLUDED IN IT. OUTPUT FILES (tidy_data.txt) WILL ALSO BE WRITTEN IN THE WORKING DIRECTORY
+
+
 ##Code Description
 
 The developed script (run_analysis.R) performs the following tasks 
