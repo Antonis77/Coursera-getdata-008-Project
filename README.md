@@ -16,9 +16,9 @@ The developed script (run_analysis.R) performs the following tasks
 
 1) Merges the training and the test sets to create one data set. This includes the measurement results, the activities and the subject (persons) IDs. 
 
-2) Extracts only the measurements on the mean and standard deviation for each measurement type. After this filtering out of 561 initial variables 77 remain. Variables with the string 'BodyBody' in their name are considered erroneous and are also removed 
+2) Extracts only the measurements on the mean and standard deviation for each measurement type. After this filtering out of 561 initial variables 66 remain. Only the variables with mean() or std() at the end of the string as considered valid. Variables with the string 'meanFreq' in their names which denotes weighted averaging of frequency have been not considered mean or standard deviation values of measurements as so are excluded. The same occurs with angle() variables which are created by averaging the signals in a signal window sample and therefore are not considered as measurements averages or standard deviations. Finally the string 'BodyBody' in some variable names has been replaced by the string 'body'.  
 
-3) Uses descriptive activity names to name the activities in the data set. The correlation between activity numbers and names is the following 1 - "WALKING" 2 - "WALKING UPSTAIRS" 3- "WALKING DOWNSTAIRS" 4 - "SITTING" 5 - "STANDING" 6 -"LYING" The descriptive activity labels and the subject IDs are added to the 2 first columns of the dataset and so the variables increase from 77 to 79. 
+3) Uses descriptive activity names to name the activities in the data set. The correlation between activity numbers and names is the following 1 - "WALKING" 2 - "WALKING UPSTAIRS" 3- "WALKING DOWNSTAIRS" 4 - "SITTING" 5 - "STANDING" 6 -"LYING" The descriptive activity labels and the subject IDs are added to the 2 first columns of the dataset and so the variables increase from 66 to 68. 
 
 4) Appropriately labels the data set with descriptive variable names. The following rules are applied: 
 - Abbreviations are expanded to the whole text (e.g. 'acc' to 'accelerometer') 
